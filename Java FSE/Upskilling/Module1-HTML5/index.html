@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Local Community Event Portal</title>
+
+    <style>
+
+        #welcomeBanner{
+            background-color: blue;
+            color: white;
+            padding: 10px;
+        }
+
+        .highlight{
+            background-color: yellow;
+        }
+
+        .gallery img{
+            border: 3px solid black;
+        }
+
+    </style>
+
+</head>
+
+<body onbeforeunload="return confirm('Are you sure you want to leave?')">
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="#home">Home</a> |
+
+        <a href="#events">Events</a> |
+
+        <a href="#contact">Contact</a> |
+
+        <a href="help.html" target="_blank">Help</a>
+
+    </nav>
+
+    <hr>
+
+    <!-- Main Section -->
+
+    <section id="home">
+
+        <div id="welcomeBanner">
+
+            <h1>Welcome to Community Event Portal</h1>
+
+            <p>
+
+                Special Offer :
+
+                <span style="color:red; font-weight:bold;">
+
+                    Register Now and Get 50% Discount
+
+                </span>
+
+            </p>
+
+            <p class="highlight">
+
+                Enjoy upcoming local community events.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <hr>
+
+    <!-- Events Section -->
+
+    <section id="events">
+
+        <h2>Community Event Gallery</h2>
+
+        <table border="1" class="gallery">
+
+            <tr>
+
+                <td>
+
+                    <img src="image1.jpg"
+                         alt="Music Event"
+                         title="Music Event"
+                         width="200"
+                         height="150">
+
+                    <p>Music Event</p>
+
+                </td>
+
+                <td>
+
+                    <img src="image2.jpg"
+                         alt="Dance Event"
+                         title="Dance Event"
+                         width="200"
+                         height="150">
+
+                    <p>Dance Event</p>
+
+                </td>
+
+                <td>
+
+                    <img src="image3.jpg"
+                         alt="Food Event"
+                         title="Food Event"
+                         width="200"
+                         height="150">
+
+                    <p>Food Festival</p>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    <img src="image4.jpg"
+                         alt="Sports Event"
+                         title="Sports Event"
+                         width="200"
+                         height="150">
+
+                    <p>Sports Meet</p>
+
+                </td>
+
+                <td>
+
+                    <img src="image5.jpg"
+                         alt="Art Event"
+                         title="Art Event"
+                         width="200"
+                         height="150">
+
+                    <p>Art Exhibition</p>
+
+                </td>
+
+                <td>
+
+                    <img src="image6.jpg"
+                         alt="Book Event"
+                         title="Book Event"
+                         width="200"
+                         height="150">
+
+                    <p>Book Fair</p>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <hr>
+
+    <!-- Registration Form -->
+
+    <section>
+
+        <h2>Event Registration Form</h2>
+
+        <form onsubmit="document.getElementById('msg').value='Registration Successful'; return false;">
+
+            <label>Name :</label>
+
+            <input type="text"
+                   placeholder="Enter your name"
+                   required
+                   autofocus>
+
+            <br><br>
+
+            <label>Email :</label>
+
+            <input type="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <br><br>
+
+            <label>Date :</label>
+
+            <input type="date" required>
+
+            <br><br>
+
+            <label>Event Type :</label>
+
+            <select id="eventType"
+                    onchange="showFee(); savePreference();">
+
+                <option value="">Select</option>
+
+                <option value="Music">Music</option>
+
+                <option value="Dance">Dance</option>
+
+                <option value="Sports">Sports</option>
+
+            </select>
+
+            <br><br>
+
+            <label>Message :</label>
+
+            <textarea placeholder="Enter your message"></textarea>
+
+            <br><br>
+
+            <input type="submit" value="Register">
+
+            <br><br>
+
+            <output id="msg"></output>
+
+        </form>
+
+    </section>
+
+    <hr>
+
+    <!-- Feedback Section -->
+
+    <section>
+
+        <h2>Event Feedback</h2>
+
+        <form>
+
+            <label>Phone Number :</label>
+
+            <input type="text"
+                   onblur="validatePhone()"
+                   id="phone">
+
+            <br><br>
+
+            <label>Select Event :</label>
+
+            <select onchange="showFee()">
+
+                <option>Music</option>
+
+                <option>Dance</option>
+
+                <option>Sports</option>
+
+            </select>
+
+            <br><br>
+
+            <label>Feedback :</label>
+
+            <textarea id="feedback"
+                      onkeyup="countCharacters()"></textarea>
+
+            <p id="count"></p>
+
+            <br>
+
+            <button type="button"
+                    onclick="alert('Feedback Submitted')">
+
+                Submit
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <hr>
+
+    <!-- Double Click Image -->
+
+    <section>
+
+        <h2>Double Click to Enlarge Image</h2>
+
+        <img src="event1.jpg"
+             width="200"
+             ondblclick="this.width='400'">
+
+    </section>
+
+    <hr>
+
+    <!-- Video Section -->
+
+    <section>
+
+        <h2>Event Promo Video</h2>
+
+        <video width="400"
+               controls
+               oncanplay="videoReady()">
+
+            <source src="promo.mp4"
+                    type="video/mp4">
+
+        </video>
+
+    </section>
+
+    <hr>
+
+    <!-- Storage Section -->
+
+    <section>
+
+        <h2>User Preferences</h2>
+
+        <button onclick="clearPreferences()">
+
+            Clear Preferences
+
+        </button>
+
+    </section>
+
+    <hr>
+
+    <!-- Geolocation Section -->
+
+    <section>
+
+        <h2>Find Nearby Events</h2>
+
+        <button onclick="findLocation()">
+
+            Find Nearby Events
+
+        </button>
+
+        <p id="location"></p>
+
+    </section>
+
+    <hr>
+
+    <!-- Footer -->
+
+    <footer id="contact">
+
+        <h3>Contact Us</h3>
+
+        <p>Email : community@gmail.com</p>
+
+        <p>Phone : 9876543210</p>
+
+    </footer>
+
+    <script>
+
+        function validatePhone(){
+
+            let phone = document.getElementById("phone").value;
+
+            if(phone.length < 10){
+
+                alert("Invalid Phone Number");
+
+            }
+
+        }
+
+        function showFee(){
+
+            alert("Event Fee : Rs.500");
+
+        }
+
+        function countCharacters(){
+
+            let text = document.getElementById("feedback").value;
+
+            document.getElementById("count").innerHTML =
+            "Character Count : " + text.length;
+
+        }
+
+        function videoReady(){
+
+            alert("Video ready to play");
+
+        }
+
+        function savePreference(){
+
+            let event =
+            document.getElementById("eventType").value;
+
+            localStorage.setItem("preferredEvent", event);
+
+        }
+
+        window.onload = function(){
+
+            let saved =
+            localStorage.getItem("preferredEvent");
+
+            if(saved){
+
+                document.getElementById("eventType").value =
+                saved;
+
+            }
+
+        }
+
+        function clearPreferences(){
+
+            localStorage.clear();
+
+            sessionStorage.clear();
+
+            alert("Preferences Cleared");
+
+        }
+
+        function findLocation(){
+
+            navigator.geolocation.getCurrentPosition(
+
+                function(position){
+
+                    document.getElementById("location").innerHTML =
+
+                    "Latitude : " +
+                    position.coords.latitude +
+
+                    "<br>Longitude : " +
+                    position.coords.longitude;
+
+                },
+
+                function(error){
+
+                    alert("Location access denied");
+
+                },
+
+                {
+
+                    enableHighAccuracy:true,
+                    timeout:5000
+
+                }
+
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

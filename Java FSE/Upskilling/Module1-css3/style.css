@@ -1,0 +1,125 @@
+
+
+*{
+    margin:0;
+    padding:0;
+}
+
+
+
+body{
+    font-family: Arial;
+    background-image: linear-gradient(lightblue, white);
+}
+
+
+
+nav ul{
+    list-style-type:none;
+    background-color:black;
+    padding:15px;
+}
+
+nav ul li{
+    display:inline;
+    margin-right:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+
+
+a:hover{
+    color:yellow;
+}
+
+a:active{
+    color:red;
+}
+
+a:visited{
+    color:lightgreen;
+}
+
+
+
+#mainHeader{
+    background-color:blue;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+h2{
+    color:darkblue;
+    margin:20px;
+}
+
+
+
+.eventCard{
+    border:2px solid black;
+    padding:20px;
+    margin:20px;
+    background-color:rgba(0,0,255,0.1);
+}
+
+
+
+h3,p{
+    font-family:Verdana;
+    line-height:1.5;
+}
+
+
+
+table{
+    width:80%;
+    border-collapse:collapse;
+    margin:20px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th{
+    background-color:gray;
+    color:white;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background-color:lightgray;
+}
+
+
+
+.news{
+    column-count:2;
+    column-gap:30px;
+    column-rule:1px solid gray;
+    margin:20px;
+}
+
+
+
+@media screen and (max-width:768px){
+
+    nav ul li{
+        display:block;
+        margin:10px 0;
+    }
+
+    body{
+        font-size:14px;
+    }
+
+}
