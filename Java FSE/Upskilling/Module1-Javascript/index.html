@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1{
+            text-align:center;
+            color: #333;
+        }
+
+        #eventContainer{
+            display:flex;
+            flex-wrap:wrap;
+            gap:15px;
+            margin-top:20px;
+        }
+
+        .card{
+            background:white;
+            padding:15px;
+            border-radius:8px;
+            box-shadow:0 0 5px gray;
+            width:250px;
+        }
+
+        button{
+            padding:8px 12px;
+            cursor:pointer;
+        }
+
+        form{
+            margin-top:20px;
+            background:white;
+            padding:15px;
+            border-radius:8px;
+        }
+
+        input,select{
+            width:100%;
+            padding:8px;
+            margin:8px 0;
+        }
+
+        #message{
+            margin-top:10px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Community Event Portal</h1>
+
+<h3>Filter Events</h3>
+
+<select id="categoryFilter">
+    <option value="All">All</option>
+    <option value="Music">Music</option>
+    <option value="Workshop">Workshop</option>
+    <option value="Sports">Sports</option>
+</select>
+
+<div id="eventContainer"></div>
+
+<h2>Register for Event</h2>
+
+<form id="registrationForm">
+
+    <input type="text"
+           name="name"
+           placeholder="Enter Name">
+
+    <input type="email"
+           name="email"
+           placeholder="Enter Email">
+
+    <select name="event">
+        <option value="Music Fest">Music Fest</option>
+        <option value="Baking Workshop">Baking Workshop</option>
+        <option value="Football Match">Football Match</option>
+    </select>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<div id="message"></div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
